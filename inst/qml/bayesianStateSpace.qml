@@ -137,7 +137,7 @@ Form
 			id: checkLocalLinearTrend
 			checked: false
 			columns: 2
-			//Layout.columnSpan: 2
+			Layout.columnSpan: 2
 			//CheckBox
 			//{
 			//	name: "lltLevelPrior"
@@ -156,6 +156,15 @@ Form
 			//	DoubleField { name:"lltSlopeSigmaGuess";		label: "σ guess";	fieldWidth: 40;}
 			//	DoubleField { name:"lltSlopeSigmaWeight";		label: "Weight";	fieldWidth: 40;}
 			//}
+		}
+		//Semi Local Linear Trend
+		CheckBox
+		{
+			name: "checkboxSemiLocalLinearTrend"
+			label : qsTr("Add semi-local linear trend")
+			checked: false
+			id: checkSemiLocalLinearTrend
+			Layout.columnSpan: 2
 		}
 		//Dynamic Regression Component
 		CheckBox

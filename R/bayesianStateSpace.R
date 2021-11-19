@@ -21,7 +21,7 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
 
 
   # check if results can be computed
-  ready <- (options$dependent != "" && any(options[c("checkboxAr","checkboxLocalLevel","checkboxLocalLinearTrend")]==TRUE,length(options$seasonalities)>0))
+  ready <- (options$dependent != "" && any(options[c("checkboxAr","checkboxLocalLevel","checkboxLocalLinearTrend","checkboxSemiLocalLinearTrend")]==TRUE,length(options$seasonalities)>0))
   # Init options: add variables to options to be used in the remainder of the analysis
 
   # read dataset
@@ -101,6 +101,7 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
            "checkboxLocalLevel",'localLevelSdPrior','localLevelSigmaGuess','localLevelSigmaWeight',
            "checkboxLocalLinearTrend",'lltLevelPrior','lltLevelSigmaGuess','lltLevelSigmaWeight','lltSlopePrior',
            'lltSlopeSigmaGuess','lltSlopeSigmaWeight',
+           "checkboxSemiLocalLinearTrend",
            "checkboxDynReg"
   ))
 }
@@ -143,7 +144,7 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
   if (is.null(jaspResults[["bstsMainContainer"]][["bstsModelPredictions"]]) & options$predictionHorizon >0) {
     bstsResults <- jaspResults[["bstsMainContainer"]][["bstsModelResults"]]$object
     bstsModelPredictionsState <- createJaspState()
-
+    bstsModelPredictionsState$dependOn(.bstsPredictionDependencies())
     bstsPredictionResults <- bsts::predict.bsts(object = bstsResults,horizon=options$predictionHorizon)
     bstsModelPredictionsState$object <- bstsPredictionResults
     jaspResults[["bstsMainContainer"]][["bstsModelPredictions"]] <- bstsModelPredictionsState
@@ -162,7 +163,7 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
   predictors = NULL
   if (length(options$covariates)>0|length(options$factors) >0)
     predictors <- .bstsGetPredictors(options$modelTerms)
-  formula = .bstsGetFormula(dependent=y,predictors = predictors,options)
+  formula = .bstsGetFormula(dependent=dataset[,options[["dependent"]]],predictors = predictors,options)
 
   #for(predictor in predictors){
   #  data[[predictor]] <- dataset[dataset[,options[["dependent"]]]]
@@ -189,6 +190,11 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
 
   if(options$checkboxLocalLinearTrend)
     ss <- bsts::AddLocalLinearTrend(ss,y=dataset[,options[["dependent"]]])
+
+  # Add semi-local linear trend
+
+  if(options$checkboxSemiLocalLinearTrend)
+    ss <- bsts::AddSemilocalLinearTrend(ss,y=dataset[,options[["dependent"]]])
 
 
   if(options$checkboxDynReg & options$DynRegLags==0)
@@ -550,7 +556,7 @@ quantInv <- function(distr, value){
   if(!ready | !options$predictionHorizon>0) return()
 
   bstsPredictionPlot <- createJaspPlot(title="Prediction plot", height = 320, width = 480)
-
+  bstsPredictionPlot$dependOn(.bstsPredictionDependencies())
 
   bstsModelResults <- jaspResults[["bstsMainContainer"]][["bstsModelResults"]]$object
 
