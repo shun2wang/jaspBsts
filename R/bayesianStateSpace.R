@@ -154,19 +154,19 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
 
 .bstsResultsHelper <- function(dataset,options) {
 
-  y     <- dataset[[encodeColNames(options$dependent)]]
+  #y     <- dataset[,options[["dependent"]]]
 
-  data <- data.frame(y=y)
+  #data <- data.frame(y=y)
 
 
   predictors = NULL
   if (length(options$covariates)>0|length(options$factors) >0)
     predictors <- .bstsGetPredictors(options$modelTerms)
-  formula = .bstsGetFormula(dependent=y,predictors = predictors)
+  formula = .bstsGetFormula(dependent=y,predictors = predictors,options)
 
-  for(predictor in predictors){
-    data[[predictor]] <- dataset[[encodeColNames(predictor)]]
-  }
+  #for(predictor in predictors){
+  #  data[[predictor]] <- dataset[dataset[,options[["dependent"]]]]
+  #}
 
 
 
@@ -174,25 +174,25 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
   #AddAr
   if(options$checkboxAr){
     if(options$lagSelectionMethod == "manualAR")
-      ss <- bsts::AddAr(ss,y = data$y,lags =options$noLags)
+      ss <- bsts::AddAr(ss,y = dataset[,options[["dependent"]]],lags =options$noLags)
 
     if(options$lagSelectionMethod == "autoAR")
-      ss <- bsts::AddAutoAr(ss,y=data$y,lags=options$maxNoLags)
+      ss <- bsts::AddAutoAr(ss,y=dataset[,options[["dependent"]]],lags=options$maxNoLags)
   }
 
   #Add local level Component
 
   if(options$checkboxLocalLevel)
-    ss <- bsts::AddLocalLevel(ss,y=data$y)
+    ss <- bsts::AddLocalLevel(ss,y=dataset[,options[["dependent"]]])
 
   # Add Local Linear trend component
 
   if(options$checkboxLocalLinearTrend)
-    ss <- bsts::AddLocalLinearTrend(ss,y=y)
+    ss <- bsts::AddLocalLinearTrend(ss,y=dataset[,options[["dependent"]]])
 
 
   if(options$checkboxDynReg & options$DynRegLags==0)
-    ss <- bsts::AddDynamicRegression(ss,formula=formula,data=data)
+    ss <- bsts::AddDynamicRegression(ss,formula=formula,data=dataset)
 
 
   if (!is.null(options$seasonalities)) {
@@ -202,7 +202,7 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
       sigma.prior <- if(seas$sigma.guess=="") NULL else{Boom::SdPrior(as.numeric(seas$sigma.guess),seas$sample.size)}
       normal.prior <- if(seas$sigma=="") NULL else Boom::NormalPrior(seas$mu,as.numeric(seas$sigma))
       ss <- bsts::AddSeasonal(ss,
-                              y = y,
+                              y = dataset[,options[["dependent"]]],
                               nseasons = seas$nSeason,
                               season.duration = seas$seasonDuration,
                               sigma.prior = sigma.prior,
@@ -252,7 +252,7 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
 
   actualValues <- as.numeric(bstsResults$original.series)
   if(options$dates != "")
-    options$time <- as.POSIXct(dataset[[encodeColNames(options$dates)]], tz = "UTC")
+    options$time <- as.POSIXct(dataset[,options[["dates"]]], tz = "UTC")
   else
     options$time <- 1:length(actualValues)
 
@@ -262,7 +262,7 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
 
 # Helper function to create regression formula that is passed into bsts functions
 
-.bstsGetPredictors <- function(modelTerms, modelType = "alternative", encoded = TRUE) {
+.bstsGetPredictors <- function(modelTerms, modelType = "alternative") {
 
   if (!is.character(modelType) || !modelType %in% c("alternative", "null"))
     stop(gettext("Unknown value provided for modelType, possible values: `alternative`, `null`"))
@@ -271,8 +271,7 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
 
   for (i in seq_along(modelTerms)) {
     components <- unlist(modelTerms[[i]]$components)
-    if (encoded)
-      components <- .v(components)
+
     predictor <- paste0(components, collapse = ":")
 
     if (modelType == "alternative") {
@@ -287,7 +286,7 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
   return(predictors)
 }
 
-.bstsGetFormula <- function(dependent, predictors = NULL, includeConstant) {
+.bstsGetFormula <- function(dependent,options, predictors = NULL, includeConstant) {
 
 
   if (is.null(predictors))
@@ -295,7 +294,7 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
     return(dependent)
   else
     # if bsts has regression then we need an actual formula
-    dependent = "y"
+    dependent = options[["dependent"]]
   formula <- paste(dependent, "~", paste(predictors, collapse = "+"))
 
   return(as.formula(formula, env = parent.frame(1)))
