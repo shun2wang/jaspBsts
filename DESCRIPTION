@@ -16,7 +16,6 @@ Imports:
   Boom,
   ggplot2,
   matrixStats,
-  ragg,
   reshape2
 Suggests:
   testthat
