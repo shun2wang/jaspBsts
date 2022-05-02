@@ -810,3 +810,4 @@ quantInv <- function(distr, value){
 
   return()
 }
+
