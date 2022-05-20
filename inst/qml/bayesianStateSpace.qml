@@ -79,7 +79,7 @@ Form
 				enabled: checkAr.checked
 				name: "lagSelectionMethod"
 				title: qsTr("Lag selection method")
-				radioButtonsOnSameRow: TRUE
+				radioButtonsOnSameRow: true
 				RadioButton
 				{
 					value: "manualAR"; label: qsTr("Manually"); checked: true
@@ -412,7 +412,7 @@ Form
 		{
 			name: "burnSpecification"
 			title: qsTr("Burn-in Specification")
-			radioButtonsOnSameRow: TRUE
+			radioButtonsOnSameRow: true
 			RadioButton
 			{
 				value: "burnSuggested"; label: qsTr("Automatic suggestion"); checked: true
