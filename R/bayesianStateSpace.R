@@ -141,11 +141,11 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
 
 
 
-  if (is.null(jaspResults[["bstsMainContainer"]][["bstsModelPredictions"]]) & options$predictionHorizon >0) {
+  if (is.null(jaspResults[["bstsMainContainer"]][["bstsModelPredictions"]]) && options$predictionHorizon > 0) {
     bstsResults <- jaspResults[["bstsMainContainer"]][["bstsModelResults"]]$object
     bstsModelPredictionsState <- createJaspState()
     bstsModelPredictionsState$dependOn(.bstsPredictionDependencies())
-    bstsPredictionResults <- bsts::predict.bsts(object = bstsResults,horizon=options$predictionHorizon,seed = options$seed)
+    bstsPredictionResults <- bsts::predict.bsts(object = bstsResults, horizon = options$predictionHorizon, seed = options$seed, newdata = dataset)
     bstsModelPredictionsState$object <- bstsPredictionResults
     jaspResults[["bstsMainContainer"]][["bstsModelPredictions"]] <- bstsModelPredictionsState
   }
