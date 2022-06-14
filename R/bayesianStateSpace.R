@@ -29,8 +29,6 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
     options[["predictionHorizon"]] <- 0L
 
   # read dataset
-
-
   dataset <- .bstsReadData(options,ready)
   # error checking
   .bstsErrorHandling(dataset, options)
@@ -135,15 +133,13 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
     jaspResults[["bstsMainContainer"]]$dependOn(.bstsModelDependencies())
   }
 
-  if(is.null(jaspResults[["bstsMainContainer"]][["bstsModelResults"]])) {
+  if (is.null(jaspResults[["bstsMainContainer"]][["bstsModelResults"]])) {
     bstsModelResultsState <- createJaspState()
 
     bstsModelResults <- .bstsResultsHelper(dataset,options)
     bstsModelResultsState$object <- bstsModelResults
     jaspResults[["bstsMainContainer"]][["bstsModelResults"]] <- bstsModelResultsState
   }
-
-
 
   if (is.null(jaspResults[["bstsMainContainer"]][["bstsModelPredictions"]]) && options$predictionHorizon > 0) {
     bstsResults <- jaspResults[["bstsMainContainer"]][["bstsModelResults"]]$object
@@ -159,21 +155,10 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
 
 .bstsResultsHelper <- function(dataset,options) {
 
-  #y     <- dataset[,options[["dependent"]]]
-
-  #data <- data.frame(y=y)
-
-
   predictors = NULL
   if (length(options$covariates)>0|length(options$factors) >0)
     predictors <- .bstsGetPredictors(options$modelTerms)
   formula = .bstsGetFormula(dependent=dataset[,options[["dependent"]]],predictors = predictors,options)
-
-  #for(predictor in predictors){
-  #  data[[predictor]] <- dataset[dataset[,options[["dependent"]]]]
-  #}
-
-
 
   ss   <- list()
   #AddAr
