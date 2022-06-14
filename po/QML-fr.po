@@ -48,6 +48,10 @@ msgid "Credible interval"
 msgstr ""
 
 msgctxt "bayesianStateSpace|"
+msgid "Expected predictors"
+msgstr ""
+
+msgctxt "bayesianStateSpace|"
 msgid "Model Components"
 msgstr ""
 
@@ -93,6 +97,10 @@ msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Add dynamic regression component"
+msgstr ""
+
+msgctxt "bayesianStateSpace|"
+msgid "Lag of coefficients"
 msgstr ""
 
 msgctxt "bayesianStateSpace|"
@@ -168,30 +176,6 @@ msgid "Show control chart"
 msgstr ""
 
 msgctxt "bayesianStateSpace|"
-msgid "Advanced Options"
-msgstr ""
-
-msgctxt "bayesianStateSpace|"
-msgid "Burn-in Specification"
-msgstr ""
-
-msgctxt "bayesianStateSpace|"
-msgid "Automatic suggestion"
-msgstr ""
-
-msgctxt "bayesianStateSpace|"
-msgid "Manual"
-msgstr ""
-
-msgctxt "bayesianStateSpace|"
-msgid "Expected predictors"
-msgstr ""
-
-msgctxt "bayesianStateSpace|"
-msgid "Lag of coefficients"
-msgstr ""
-
-msgctxt "bayesianStateSpace|"
 msgid "Control period end"
 msgstr ""
 
@@ -204,6 +188,10 @@ msgid "Show probalistic control plot"
 msgstr ""
 
 msgctxt "bayesianStateSpace|"
+msgid "Advanced Options"
+msgstr ""
+
+msgctxt "bayesianStateSpace|"
 msgid "Desired MCMC draws"
 msgstr ""
 
@@ -212,7 +200,19 @@ msgid "Timout in seconds"
 msgstr ""
 
 msgctxt "bayesianStateSpace|"
+msgid "Burn-in Specification"
+msgstr ""
+
+msgctxt "bayesianStateSpace|"
+msgid "Automatic suggestion"
+msgstr ""
+
+msgctxt "bayesianStateSpace|"
 msgid "Proportion"
+msgstr ""
+
+msgctxt "bayesianStateSpace|"
+msgid "Manual"
 msgstr ""
 
 msgctxt "bayesianStateSpace|"

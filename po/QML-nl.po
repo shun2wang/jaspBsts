@@ -1,6 +1,5 @@
 msgid ""
 msgstr ""
-"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -182,4 +181,40 @@ msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Manual"
+msgstr ""
+
+msgctxt "bayesianStateSpace|"
+msgid "Expected predictors"
+msgstr ""
+
+msgctxt "bayesianStateSpace|"
+msgid "Lag of coefficients"
+msgstr ""
+
+msgctxt "bayesianStateSpace|"
+msgid "Control period end"
+msgstr ""
+
+msgctxt "bayesianStateSpace|"
+msgid "σ threshold"
+msgstr ""
+
+msgctxt "bayesianStateSpace|"
+msgid "Show probalistic control plot"
+msgstr ""
+
+msgctxt "bayesianStateSpace|"
+msgid "Desired MCMC draws"
+msgstr ""
+
+msgctxt "bayesianStateSpace|"
+msgid "Timout in seconds"
+msgstr ""
+
+msgctxt "bayesianStateSpace|"
+msgid "Proportion"
+msgstr ""
+
+msgctxt "bayesianStateSpace|"
+msgid "Seed"
 msgstr ""
