@@ -11,8 +11,8 @@ Form
 
 		AvailableVariablesList	{ name: "allVariablesList" }
 		AssignedVariablesList	{ name: "dependent";	title: qsTr("Dependent Variable");	suggestedColumns: ["scale"];	singleVariable: true}
-		AssignedVariablesList	{ name: "covariates";	title: qsTr("Covariates");			suggestedColumns: ["scale"];	allowedColumns: ["scale"]	}
-		AssignedVariablesList 	{ name: "factors";		title: qsTr("Factors");				allowedColumns: ["ordinal", "nominal", "nominalText"]		}
+		AssignedVariablesList	{ name: "covariates";	title: qsTr("Covariates");			suggestedColumns: ["scale"];	allowedColumns: ["scale"];	id: covariates	}
+		AssignedVariablesList 	{ name: "factors";		title: qsTr("Factors");				allowedColumns: ["ordinal", "nominal", "nominalText"];		id: factors		}
 		AssignedVariablesList	{ name: "dates";		title: qsTr("Time");				suggestedColumns: ["nominal"];	singleVariable: true		}
 	}
 
@@ -359,6 +359,7 @@ Form
 			{
 				name: "predictionHorizon"
 				label: qsTr("Horizon")
+				enabled: covariates.count === 0 && factors.count === 0
 			}
 		}
 

@@ -24,6 +24,10 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
   ready <- (options$dependent != "" && any(options[c("checkboxAr","checkboxLocalLevel","checkboxLocalLinearTrend","checkboxSemiLocalLinearTrend")]==TRUE,length(options$seasonalities)>0))
   # Init options: add variables to options to be used in the remainder of the analysis
 
+  # ensure the prediction horizon is 0 whenever there are covariates or factors
+  if (length(options[["covariates"]]) > 0L || length(options[["factors"]]) > 0L)
+    options[["predictionHorizon"]] <- 0L
+
   # read dataset
 
 
@@ -145,7 +149,7 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
     bstsResults <- jaspResults[["bstsMainContainer"]][["bstsModelResults"]]$object
     bstsModelPredictionsState <- createJaspState()
     bstsModelPredictionsState$dependOn(.bstsPredictionDependencies())
-    bstsPredictionResults <- bsts::predict.bsts(object = bstsResults, horizon = options$predictionHorizon, seed = options$seed, newdata = dataset)
+    bstsPredictionResults <- bsts::predict.bsts(object = bstsResults, horizon = options$predictionHorizon, seed = options$seed)
     bstsModelPredictionsState$object <- bstsPredictionResults
     jaspResults[["bstsMainContainer"]][["bstsModelPredictions"]] <- bstsModelPredictionsState
   }
