@@ -24,9 +24,11 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
   ready <- (options$dependent != "" && any(options[c("checkboxAr","checkboxLocalLevel","checkboxLocalLinearTrend","checkboxSemiLocalLinearTrend")]==TRUE,length(options$seasonalities)>0))
   # Init options: add variables to options to be used in the remainder of the analysis
 
+  # ensure the prediction horizon is 0 whenever there are covariates or factors
+  if (length(options[["covariates"]]) > 0L || length(options[["factors"]]) > 0L)
+    options[["predictionHorizon"]] <- 0L
+
   # read dataset
-
-
   dataset <- .bstsReadData(options,ready)
   # error checking
   .bstsErrorHandling(dataset, options)
@@ -131,7 +133,7 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
     jaspResults[["bstsMainContainer"]]$dependOn(.bstsModelDependencies())
   }
 
-  if(is.null(jaspResults[["bstsMainContainer"]][["bstsModelResults"]])) {
+  if (is.null(jaspResults[["bstsMainContainer"]][["bstsModelResults"]])) {
     bstsModelResultsState <- createJaspState()
 
     bstsModelResults <- .bstsResultsHelper(dataset,options)
@@ -139,13 +141,11 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
     jaspResults[["bstsMainContainer"]][["bstsModelResults"]] <- bstsModelResultsState
   }
 
-
-
-  if (is.null(jaspResults[["bstsMainContainer"]][["bstsModelPredictions"]]) & options$predictionHorizon >0) {
+  if (is.null(jaspResults[["bstsMainContainer"]][["bstsModelPredictions"]]) && options$predictionHorizon > 0) {
     bstsResults <- jaspResults[["bstsMainContainer"]][["bstsModelResults"]]$object
     bstsModelPredictionsState <- createJaspState()
     bstsModelPredictionsState$dependOn(.bstsPredictionDependencies())
-    bstsPredictionResults <- bsts::predict.bsts(object = bstsResults,horizon=options$predictionHorizon,seed = options$seed)
+    bstsPredictionResults <- bsts::predict.bsts(object = bstsResults, horizon = options$predictionHorizon, seed = options$seed)
     bstsModelPredictionsState$object <- bstsPredictionResults
     jaspResults[["bstsMainContainer"]][["bstsModelPredictions"]] <- bstsModelPredictionsState
   }
@@ -155,21 +155,10 @@ bayesianStateSpace <- function(jaspResults, dataset, options) {
 
 .bstsResultsHelper <- function(dataset,options) {
 
-  #y     <- dataset[,options[["dependent"]]]
-
-  #data <- data.frame(y=y)
-
-
   predictors = NULL
   if (length(options$covariates)>0|length(options$factors) >0)
     predictors <- .bstsGetPredictors(options$modelTerms)
   formula = .bstsGetFormula(dependent=dataset[,options[["dependent"]]],predictors = predictors,options)
-
-  #for(predictor in predictors){
-  #  data[[predictor]] <- dataset[dataset[,options[["dependent"]]]]
-  #}
-
-
 
   ss   <- list()
   #AddAr
