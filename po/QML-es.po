@@ -29,10 +29,6 @@ msgid "Covariates"
 msgstr "Covariables"
 
 msgctxt "bayesianStateSpace|"
-msgid "Factors"
-msgstr "Factores"
-
-msgctxt "bayesianStateSpace|"
 msgid "Time"
 msgstr "Tiempo"
 
@@ -223,3 +219,7 @@ msgstr "Manual"
 msgctxt "bayesianStateSpace|"
 msgid "Seed"
 msgstr "Semilla"
+
+msgctxt "bayesianStateSpace|"
+msgid "fixedFactors"
+msgstr ""

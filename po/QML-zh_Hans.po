@@ -26,10 +26,6 @@ msgid "Covariates"
 msgstr "协变量"
 
 msgctxt "bayesianStateSpace|"
-msgid "Factors"
-msgstr "因子"
-
-msgctxt "bayesianStateSpace|"
 msgid "Time"
 msgstr "时间"
 
@@ -220,3 +216,7 @@ msgstr "比例"
 msgctxt "bayesianStateSpace|"
 msgid "Seed"
 msgstr "种子(Seed)"
+
+msgctxt "bayesianStateSpace|"
+msgid "fixedFactors"
+msgstr ""

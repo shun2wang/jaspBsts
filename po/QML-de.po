@@ -29,10 +29,6 @@ msgid "Covariates"
 msgstr "Kovariaten"
 
 msgctxt "bayesianStateSpace|"
-msgid "Factors"
-msgstr "Faktoren"
-
-msgctxt "bayesianStateSpace|"
 msgid "Time"
 msgstr "Zeit"
 
@@ -224,3 +220,7 @@ msgstr "Anteil"
 msgctxt "bayesianStateSpace|"
 msgid "Seed"
 msgstr "Startwert für Zufallszahlen"
+
+msgctxt "bayesianStateSpace|"
+msgid "fixedFactors"
+msgstr ""
