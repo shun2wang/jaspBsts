@@ -18,9 +18,7 @@ Imports:
   matrixStats,
   reshape2
 Suggests:
-  jaspTools,
   testthat
 Remotes:
   jasp-stats/jaspBase,
-  jasp-stats/jaspGraphs,
-  jasp-stats/jaspTools
+  jasp-stats/jaspGraphs
