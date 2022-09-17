@@ -219,5 +219,5 @@ msgid "Seed"
 msgstr ""
 
 msgctxt "bayesianStateSpace|"
-msgid "fixedFactors"
+msgid "Fixed Factors"
 msgstr ""
