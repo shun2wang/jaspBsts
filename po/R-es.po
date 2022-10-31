@@ -1,0 +1,96 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: jaspBsts 0.17.0\n"
+"POT-Creation-Date: 2022-10-08 03:15\n"
+"PO-Revision-Date: 2022-10-16 20:12+0000\n"
+"Last-Translator: ecadrian <ecadrian@hotmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/jasp/jaspbsts-r/"
+"es/>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.15-dev\n"
+
+msgid "Unknown value provided for modelType, possible values: `alternative`, `null`"
+msgstr ""
+"Se proporcionó un valor desconocido para modelType; posibles valores: "
+"`alternativo`, `nulo`"
+
+msgid "Model Summary"
+msgstr "Resumen del Modelo"
+
+msgid "Residual SD"
+msgstr "DT de los Errores"
+
+msgid "Prediction SD"
+msgstr "DT de la Predicción"
+
+msgid "R%s"
+msgstr "R%s"
+
+msgid "Harvey's goodness of fit"
+msgstr "Bondad de ajuste de Harvey"
+
+msgid "Test: Only %1$s draws were sampled out of the desired %2$s. Additionally, %3$s MCMC draws out of %1$s are discarded as burn in."
+msgstr ""
+"Contraste: Solo se obtuvieron %1$s extracciones de las %2$s deseadas. "
+"Además, %3$s extracciones MCMC de %1$s se descartan por el calentamiento."
+
+msgid "Posterior Summary of Coefficients"
+msgstr "Resumen posterior de Coeficientes"
+
+msgid "%s%% Credible Interval"
+msgstr "Intervalo con el %s%% de Credibilidad"
+
+msgid "Coefficients"
+msgstr "Coeficientes"
+
+msgid "P(incl)"
+msgstr "P(incl)"
+
+msgid "P(incl|data)"
+msgstr "P(incl|datos)"
+
+msgid "BF<sub>inclusion</sub>"
+msgstr "FB<sub>inclusión</sub>"
+
+msgid "Mean"
+msgstr "Media"
+
+msgid "SD"
+msgstr "DT"
+
+msgid "Mean<sub>inclusion</sub>"
+msgstr "Media<sub>inclusión</sub>"
+
+msgid "SD<sub>inclusion</sub>"
+msgstr "DT<sub>inclusión</sub>"
+
+msgid "Lower"
+msgstr "Inferior"
+
+msgid "Upper"
+msgstr "Superior"
+
+msgid "State Plots"
+msgstr "Gráficos de Estado"
+
+msgid "Aggregated State"
+msgstr "Estado Agregado"
+
+msgid "Component States"
+msgstr "Estados de las Componentes"
+
+msgid "Control Plots"
+msgstr "Gráficos de Control"
+
+msgid "Error Plots"
+msgstr "Gráficos de Error"
+
+msgid "Residual Plot"
+msgstr "Gráfico de Error"
+
+msgid "Forecast Error Plot"
+msgstr "Gráfico de Error de Predicción"
