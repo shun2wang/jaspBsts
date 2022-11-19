@@ -1,0 +1,96 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: jaspBsts 0.17.0\n"
+"POT-Creation-Date: 2022-10-08 03:15\n"
+"PO-Revision-Date: 2022-11-14 06:44+0000\n"
+"Last-Translator: Tomasz Misiuro <tomaszmisiuro@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/jasp/jaspbsts-r/"
+"pl/>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.15-dev\n"
+
+msgid "Unknown value provided for modelType, possible values: `alternative`, `null`"
+msgstr ""
+"Podano nieznaną wartość dla modelType; dopuszczalne wartości to: "
+"`alternative`, `null`"
+
+msgid "Model Summary"
+msgstr "Podsumowanie modelu"
+
+msgid "Residual SD"
+msgstr ""
+
+msgid "Prediction SD"
+msgstr ""
+
+msgid "R%s"
+msgstr "R%s"
+
+msgid "Harvey's goodness of fit"
+msgstr ""
+
+msgid "Test: Only %1$s draws were sampled out of the desired %2$s. Additionally, %3$s MCMC draws out of %1$s are discarded as burn in."
+msgstr ""
+
+msgid "Posterior Summary of Coefficients"
+msgstr ""
+
+msgid "%s%% Credible Interval"
+msgstr "%s%% Przedział wiarygodności"
+
+msgid "Coefficients"
+msgstr "Współczynniki"
+
+#, fuzzy
+msgid "P(incl)"
+msgstr "P(zawiera)"
+
+msgid "P(incl|data)"
+msgstr ""
+
+msgid "BF<sub>inclusion</sub>"
+msgstr ""
+
+msgid "Mean"
+msgstr "Średnia"
+
+msgid "SD"
+msgstr "SD"
+
+msgid "Mean<sub>inclusion</sub>"
+msgstr ""
+
+msgid "SD<sub>inclusion</sub>"
+msgstr ""
+
+msgid "Lower"
+msgstr "Dolny"
+
+msgid "Upper"
+msgstr "Górny"
+
+msgid "State Plots"
+msgstr ""
+
+msgid "Aggregated State"
+msgstr ""
+
+msgid "Component States"
+msgstr ""
+
+msgid "Control Plots"
+msgstr ""
+
+msgid "Error Plots"
+msgstr "Wykresy błędów"
+
+msgid "Residual Plot"
+msgstr "Wykres reszt"
+
+msgid "Forecast Error Plot"
+msgstr ""
