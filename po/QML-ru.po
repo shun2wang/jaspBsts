@@ -3,8 +3,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Language: zh_Hant\n"
 "X-Qt-Contexts: true\n"
 
 msgctxt "Description|"
@@ -19,7 +17,7 @@ msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Dependent Variable"
-msgstr "依變數"
+msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Covariates"
@@ -27,7 +25,7 @@ msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Fixed Factors"
-msgstr "固定因子"
+msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Time"
@@ -35,7 +33,7 @@ msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Output"
-msgstr "報表"
+msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Posterior summary of coefficients"
@@ -131,7 +129,7 @@ msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Plots"
-msgstr "圖"
+msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "State Plots"
