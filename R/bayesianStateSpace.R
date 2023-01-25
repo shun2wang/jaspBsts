@@ -33,6 +33,8 @@ bayesianStateSpaceInternal <- function(jaspResults, dataset, options) {
   # error checking
   .bstsErrorHandling(dataset, options)
 
+  .bstsCreateContainerMain(jaspResults,options,ready)
+
   # Compute (a list of) results from which tables and plots can be created
   .bstsComputeResults(jaspResults, dataset, options,ready)
 
@@ -126,12 +128,6 @@ bayesianStateSpaceInternal <- function(jaspResults, dataset, options) {
 .bstsComputeResults <- function(jaspResults, dataset, options,ready) {
   if (!ready) return()
 
-  if (is.null(jaspResults[["bstsMainContainer"]])) {
-    bstsMainContainer <- createJaspContainer()
-    jaspResults[["bstsMainContainer"]] <- bstsMainContainer
-
-    jaspResults[["bstsMainContainer"]]$dependOn(.bstsModelDependencies())
-  }
 
   if (is.null(jaspResults[["bstsMainContainer"]][["bstsModelResults"]])) {
     bstsModelResultsState <- createJaspState()
@@ -326,7 +322,7 @@ quantInv <- function(distr, value){
 
 
 .bstsCreateModelSummaryTable <- function(jaspResults,options,ready){
-  if(!is.null(jaspResults[["bstsMainContainer"]][["bstsModelSummaryTable"]])||!ready) return()
+  if(!is.null(jaspResults[["bstsMainContainer"]][["bstsModelSummaryTable"]])) return()
 
   bstsResults <- jaspResults[["bstsMainContainer"]][["bstsModelResults"]]$object
 
@@ -339,13 +335,19 @@ quantInv <- function(distr, value){
   bstsTable$addColumnInfo(name="R2",      title =gettextf("R%s", "\u00B2"),           type= "number")
   bstsTable$addColumnInfo(name="relGof",  title=gettext("Harvey's goodness of fit"),  type= "number")
 
-  if (bstsResults$niter < options$samples)
-    bstsTable$addFootnote(message=gettextf("Test: Only %1$s draws were sampled out of the desired %2$s. Additionally, %3$s MCMC draws out of %1$s are discarded as burn in.", bstsResults$niter, options$samples, options$burn))
-  else
-    bstsTable$addFootnote(message=paste0(options$burn, " MCMC draws out of ", bstsResults$niter, " are discarded as burn in."))
+  if(!is.null(bstsResults)){
+    if (bstsResults$niter < options$samples )
+      message <- gettextf("Only %1$s draws were sampled out of the desired %2$s. Additionally, %3$s MCMC draws out of %1$s are discarded as burn in.", bstsResults$niter, options$samples, options$burn)
+    else
+      message <- gettextf(paste0(options$burn, " MCMC draws out of ", bstsResults$niter, " are discarded as burn in."))
 
+    if(options$"localLevelComponent") message <- paste(message, "The local level component has been selected (by default). If you wish to adjust the model, you can do so under 'Model Components'.", sep="\n")
+    bstsTable$addFootnote(message)
+  }
 
-  .bstsFillModelSummaryTable(bstsTable,bstsResults,ready)
+  if(!is.null(bstsResults)){
+    .bstsFillModelSummaryTable(bstsTable,bstsResults,ready)
+  }
 
   jaspResults[["bstsMainContainer"]][["bstsModelSummaryTable"]] <- bstsTable
 

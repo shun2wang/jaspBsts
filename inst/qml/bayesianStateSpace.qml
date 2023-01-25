@@ -122,7 +122,7 @@ Form
 			name: "localLevelComponent"
 			label: qsTr("Add local level component")
 			id: checkLocalLevel
-			checked: false
+			checked: true
 			Layout.columnSpan: 2
 			//CheckBox
 			//{
