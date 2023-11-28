@@ -95,6 +95,7 @@ Form
 						name: "lags"
 						label: qsTr("No. of lags")
 						fieldWidth: 40
+						min: 1
 					defaultValue: 1
 					}
 				}
@@ -102,7 +103,7 @@ Form
 				{
 					value: "auto"; label: qsTr("Automatic")
 					columns: 1
-					DoubleField { name: "maxLags";	label: qsTr("Maximal lags");	fieldWidth: 40; 	defaultValue: 1;}
+					DoubleField { name: "maxLags";	label: qsTr("Maximal lags");	fieldWidth: 40; 	defaultValue: 1; min:1}
 				}
 			}
 
