@@ -3,9 +3,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Language: id\n"
-"X-Source-Language: American English\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Language: br_FR\n"
 "X-Qt-Contexts: true\n"
 
 msgctxt "Description|"
@@ -20,15 +19,19 @@ msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Dependent Variable"
-msgstr "Variabel Terikat"
+msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Covariates"
-msgstr "Kovariat"
+msgstr ""
+
+msgctxt "bayesianStateSpace|"
+msgid "Fixed Factors"
+msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Time"
-msgstr "Waktu"
+msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Output"
@@ -56,7 +59,7 @@ msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Components"
-msgstr "Komponen"
+msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Add autoregressive component"
@@ -66,10 +69,9 @@ msgctxt "bayesianStateSpace|"
 msgid "Lag selection method"
 msgstr ""
 
-#, fuzzy
 msgctxt "bayesianStateSpace|"
 msgid "Manually"
-msgstr "Secara manual"
+msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "No. of lags"
@@ -77,7 +79,7 @@ msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Automatic"
-msgstr "Otomatis"
+msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Maximal lags"
@@ -109,7 +111,7 @@ msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Name"
-msgstr "Nama"
+msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Number"
@@ -117,7 +119,7 @@ msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Duration"
-msgstr "Durasi"
+msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Inverse gamma prior"
@@ -129,7 +131,7 @@ msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Plots"
-msgstr "Plot"
+msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "State Plots"
@@ -161,7 +163,7 @@ msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Prediction"
-msgstr "Prediksi"
+msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Horizon"
@@ -197,7 +199,7 @@ msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Timout in seconds"
-msgstr "Batas waktu dalam hitungan detik"
+msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Burn-in Specification"
@@ -209,7 +211,7 @@ msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Proportion"
-msgstr "Proporsi"
+msgstr ""
 
 msgctxt "bayesianStateSpace|"
 msgid "Manual"
@@ -218,7 +220,3 @@ msgstr ""
 msgctxt "bayesianStateSpace|"
 msgid "Seed"
 msgstr ""
-
-msgctxt "bayesianStateSpace|"
-msgid "Fixed Factors"
-msgstr "Faktor Tetap"
