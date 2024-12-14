@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: jaspBsts 0.17.0\n"
-"POT-Creation-Date: 2023-01-28 02:50\n"
+"POT-Creation-Date: 2024-12-14 02:55\n"
 "PO-Revision-Date: 2024-06-20 22:09+0000\n"
 "Last-Translator: Tomasz Misiuro <tomaszmisiuro@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/jasp/jaspbsts-r/"
@@ -40,10 +40,12 @@ msgid ""
 "MCMC draws out of %1$s are discarded as burn in."
 msgstr ""
 
-msgid "MCMC draws out of"
-msgstr "Losowania MCMC z"
+msgid "%1$d MCMC draws out of %2$d are discarded as burn in."
+msgstr ""
 
-msgid "are discarded as burn in."
+msgid ""
+"The local level component has been selected (by default). If you wish to "
+"adjust the model, you can do so under 'Model Components'."
 msgstr ""
 
 msgid "Posterior Summary of Coefficients"
@@ -88,10 +90,41 @@ msgstr ""
 msgid "Aggregated State"
 msgstr ""
 
+msgid "Time"
+msgstr ""
+
+msgid "Distribution"
+msgstr ""
+
 msgid "Component States"
 msgstr ""
 
+msgid "Prediction plot"
+msgstr ""
+
 msgid "Control Plots"
+msgstr ""
+
+msgid "Threshold Plot"
+msgstr ""
+
+msgid ""
+"First date where %1$.3f*sigma is exceeded by %2$.1f%% state credible "
+"interval: %3$s"
+msgstr ""
+
+msgid ""
+"First time point where %1$.3f*sigma is exceeded by %2$.1f%% state credible "
+"interval: %3$s"
+msgstr ""
+
+msgid "Threshold never reached"
+msgstr ""
+
+msgid "Probability Plot"
+msgstr ""
+
+msgid "Probability"
 msgstr ""
 
 msgid "Error Plots"
@@ -102,3 +135,6 @@ msgstr "Wykres reszt"
 
 msgid "Forecast Error Plot"
 msgstr ""
+
+#~ msgid "MCMC draws out of"
+#~ msgstr "Losowania MCMC z"
